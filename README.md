@@ -109,3 +109,24 @@ o	Backend: http://localhost:5000
     ```bash
     docker-compose down
     ```
+
+    
+    Quick Start – Local Development
+    
+You can run this project either using Docker (Recommended) or Manually.
+
+Option 1: Using Docker (Recommended)
+Ensure you have Docker Desktop installed.
+
+Clone the repository:
+
+git clone https://github.com/bot123testing/Project-ARYAN.git
+cd Project-ARYAN
+Run with Docker Compose:
+
+docker-compose up --build
+Access the App:
+
+Frontend: http://localhost:5173
+Backend: http://localhost:5000
+
