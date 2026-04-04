@@ -1,0 +1,168 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ARYAN Exact Replica">
+    <mxGraphModel dx="1500" dy="900" grid="1" gridSize="10" guides="1" connect="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- OUTER DOCKER BOX -->
+        <mxCell id="docker" value="PROJECT ARYAN - DOCKERIZED THREE-TIER ENVIRONMENT"
+        style="rounded=1;dashed=1;strokeWidth=2;whiteSpace=wrap;html=1;align=center;fontStyle=1;"
+        vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1200" height="750" as="geometry"/>
+        </mxCell>
+
+        <!-- PRESENTATION TIER -->
+        <mxCell id="presentation" value="Presentation Tier"
+        style="rounded=1;fillColor=#dae8fc;fontStyle=1;"
+        vertex="1" parent="docker">
+          <mxGeometry x="20" y="40" width="1160" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- ACTORS -->
+        <mxCell id="actors" value="Citizen&#xa;NGO Worker&#xa;Admin"
+        style="rounded=1;"
+        vertex="1" parent="presentation">
+          <mxGeometry x="10" y="40" width="120" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- FRONTEND -->
+        <mxCell id="frontend" value="Frontend App (React 18 + Vite)&#xa;Framer Motion&#xa;Tailwind CSS"
+        style="rounded=1;"
+        vertex="1" parent="presentation">
+          <mxGeometry x="160" y="40" width="250" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- OCR -->
+        <mxCell id="ocr" value="Tesseract OCR Engine&#xa;(ID Scan)"
+        style="rounded=1;"
+        vertex="1" parent="presentation">
+          <mxGeometry x="460" y="40" width="220" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- ELIGIBILITY -->
+        <mxCell id="eligibility" value="Eligibility Matching Engine&#xa;Sector 40%&#xa;Profession 35%&#xa;Keywords 25%"
+        style="rounded=1;"
+        vertex="1" parent="presentation">
+          <mxGeometry x="720" y="40" width="300" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- APPLICATION TIER -->
+        <mxCell id="app" value="Application Tier"
+        style="rounded=1;fillColor=#fff2cc;fontStyle=1;"
+        vertex="1" parent="docker">
+          <mxGeometry x="20" y="240" width="1160" height="260" as="geometry"/>
+        </mxCell>
+
+        <!-- SERVER -->
+        <mxCell id="server" value="Node.js + Express API"
+        style="rounded=1;fontStyle=1;"
+        vertex="1" parent="app">
+          <mxGeometry x="30" y="60" width="260" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- ROUTES -->
+        <mxCell id="auth" value="Auth Routes (JWT + Bcrypt)"
+        style="rounded=1;"
+        vertex="1" parent="app">
+          <mxGeometry x="320" y="40" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="schemes" value="Schemes Routes (CRUD)"
+        style="rounded=1;"
+        vertex="1" parent="app">
+          <mxGeometry x="320" y="120" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ngo" value="NGO Routes (CRUD)"
+        style="rounded=1;"
+        vertex="1" parent="app">
+          <mxGeometry x="580" y="40" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="email" value="Email Service (OTP)"
+        style="rounded=1;"
+        vertex="1" parent="app">
+          <mxGeometry x="580" y="120" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- REGISTER BOX -->
+        <mxCell id="register" value="REGISTER&#xa;Encrypt → Hash → MongoDB → Email OTP"
+        style="rounded=1;fillColor=#f8cecc;"
+        vertex="1" parent="app">
+          <mxGeometry x="860" y="40" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- LOGIN BOX -->
+        <mxCell id="login" value="LOGIN&#xa;Password Compare → JWT → Token"
+        style="rounded=1;fillColor=#e1d5e7;"
+        vertex="1" parent="app">
+          <mxGeometry x="860" y="140" width="260" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- DATA TIER -->
+        <mxCell id="data" value="Data Tier"
+        style="rounded=1;fillColor=#d5e8d4;fontStyle=1;"
+        vertex="1" parent="docker">
+          <mxGeometry x="20" y="520" width="1160" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- MONGODB -->
+        <mxCell id="mongo" value="MongoDB"
+        style="shape=cylinder;whiteSpace=wrap;"
+        vertex="1" parent="data">
+          <mxGeometry x="20" y="50" width="80" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- COLLECTIONS -->
+        <mxCell id="users" value="Users&#xa;name, email, passwordHash"
+        style="rounded=1;"
+        vertex="1" parent="data">
+          <mxGeometry x="140" y="60" width="200" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="schemesDB" value="Schemes&#xa;sector, profession, keywords"
+        style="rounded=1;"
+        vertex="1" parent="data">
+          <mxGeometry x="420" y="60" width="200" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="ngoDB" value="NGOs&#xa;location, contact"
+        style="rounded=1;"
+        vertex="1" parent="data">
+          <mxGeometry x="700" y="60" width="200" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- FLOWS -->
+        <mxCell edge="1" source="actors" target="frontend" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" source="frontend" target="ocr" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" source="ocr" target="eligibility" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" source="frontend" target="server" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" source="server" target="users" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" source="server" target="schemesDB" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell edge="1" source="server" target="ngoDB" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
