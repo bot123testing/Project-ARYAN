@@ -136,11 +136,10 @@ Backend: http://localhost:5000
 Project ARYAN is built on a Dockerized Three-Tier Architecture using the MERN stack to ensure high scalability and strict separation of concerns. To maximize system efficiency and maintain low coupling, we separated our authentication APIs from our core business logic and offloaded the heavy OCR document processing entirely to the client-side browser using Tesseract.js. Additionally, we adopted a mobile-first, highly accessible UI design to seamlessly accommodate target demographics with varying levels of digital literacy.
 
 ### High-Level Architecture
-![Project ARYAN Architecture](./docs/design/aryan-architecture.png)
-*(The editable source file for this diagram is available in the repository at `/docs/design/aryan-architecture.drawio`)*
+![Project ARYAN Architecture]
+*https://github.com/bot123testing/Project-ARYAN/blob/main/project_ARYAN_23BCE1459.xml*
 
 ### User Interface Design
-**[Click here to view the Interactive Figma Prototype](INSERT_YOUR_FIGMA_LINK_HERE)**
+**https://github.com/bot123testing/Project-ARYAN/tree/main/design/Figma**
 
-Below are previews of our core application screens:
 
