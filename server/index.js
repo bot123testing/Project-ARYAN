@@ -21,9 +21,11 @@ app.get('/', (req, res) => {
 // Routes
 import schemeRoutes from './routes/schemes.js';
 import ngoRoutes from './routes/ngos.js';
+import authRoutes from './routes/auth.js';
 
 app.use('/api/schemes', schemeRoutes);
 app.use('/api/ngos', ngoRoutes);
+app.use('/api/auth', authRoutes);
 
 
 // Database Connection (Mock or Real)
