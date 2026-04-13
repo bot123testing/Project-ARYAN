@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DocumentScanner from '../components/OCR/DocumentScanner';
 import BenefitCard from '../components/Schemes/BenefitCard';
-import { initialSchemes } from '../../../server/data/mockData'; // Direct import for demo
+import { initialSchemes } from '../data/mockData'; // Direct import for demo
 
 const FindAid = () => {
     const [formData, setFormData] = useState({

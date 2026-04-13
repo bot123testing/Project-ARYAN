@@ -143,3 +143,11 @@ Project ARYAN is built on a Dockerized Three-Tier Architecture using the MERN st
 **https://github.com/bot123testing/Project-ARYAN/tree/main/design/Figma**
 
 
+---
+
+## 6. Recent Updates (Frontend Overhaul)
+* **Live Map (`LiveMap.jsx`)**: Advanced UI featuring 55 geographic pins across India, multi-category filtering (Food, Medicine, Subsidy, etc.), and dynamic auto-centering via React Leaflet.
+* **NGO Dashboard (`NGODashboard.jsx`)**: Dedicated analytics dashboard for NGO accounts featuring demand progress bars and real-time community search stats.
+* **About Page (`About.jsx`)**: Interactive "Impact Stories" from citizens and an overarching "Why I Built This" motive section outlining the project's goals.
+* **Streamlined Routing**: Unified the legacy "Find Aid" functionalities directly into the Live Map for an upgraded, cleaner architecture.
+

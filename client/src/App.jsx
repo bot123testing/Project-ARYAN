@@ -1,10 +1,11 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
-import MapPage from './pages/MapPage';
-import FindAid from './pages/FindAid';
+import LiveMap from './pages/LiveMap';
 import Login from './pages/Login';
 import EligibilityScanner from './pages/EligibilityScanner';
 import Header from './components/Header';
+import NGODashboard from './pages/NGODashboard';
+import About from './pages/About';
 import Footer from './components/Footer';
 import SahayaBot from './components/Chatbot/SahayaBot'; // Added Chatbot
 
@@ -20,10 +21,10 @@ function App() {
                     <Route path="/" element={<Login />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/home" element={<Home />} />
-                    <Route path="/find-aid" element={<FindAid />} />
                     <Route path="/eligibility" element={<EligibilityScanner />} />
-                    <Route path="/map" element={<MapPage />} />
-                    <Route path="/about" element={<div className="p-10 text-center text-2xl">About ARYAN Network: Building a stronger nation.</div>} />
+                    <Route path="/map" element={<LiveMap />} />
+                    <Route path="/ngo-dashboard" element={<NGODashboard />} />
+                    <Route path="/about" element={<About />} />
                 </Routes>
             </main>
             {!isLogin && <SahayaBot />}

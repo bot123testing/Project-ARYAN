@@ -24,7 +24,11 @@ const Login = () => {
                 const res = await axios.post('http://localhost:5000/api/auth/login', { email, password, role });
                 localStorage.setItem('aryan_token', res.data.token);
                 localStorage.setItem('aryan_user', JSON.stringify(res.data));
-                navigate('/home');
+                if (res.data.role === 'NGO') {
+                    navigate('/ngo-dashboard');
+                } else {
+                    navigate('/home');
+                }
             } else {
                 // Handle Registration
                 const res = await axios.post('http://localhost:5000/api/auth/register', { email, password, role });

@@ -17,7 +17,6 @@ const Header = () => {
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center space-x-8 text-gray-600 font-medium">
                     <Link to="/" className="hover:text-primary transition">Home</Link>
-                    <Link to="/find-aid" className="hover:text-primary transition">Find Aid</Link>
                     <Link to="/eligibility" className="hover:text-primary transition">Eligibility</Link>
                     <Link to="/map" className="hover:text-primary transition">Live Map</Link>
                     <Link to="/about" className="hover:text-primary transition">About</Link>
@@ -43,7 +42,6 @@ const Header = () => {
             {isMenuOpen && (
                 <div className="md:hidden bg-white border-t p-4 flex flex-col space-y-4 shadow-lg">
                     <Link to="/" className="text-gray-700 font-medium" onClick={() => setIsMenuOpen(false)}>Home</Link>
-                    <Link to="/find-aid" className="text-gray-700 font-medium" onClick={() => setIsMenuOpen(false)}>Find Aid</Link>
                     <Link to="/eligibility" className="text-gray-700 font-medium" onClick={() => setIsMenuOpen(false)}>Eligibility</Link>
                     <Link to="/map" className="text-gray-700 font-medium" onClick={() => setIsMenuOpen(false)}>Live Map</Link>
                     <button className="bg-primary text-white px-5 py-2 rounded-lg font-semibold w-full">
