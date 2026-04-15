@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
     const [isLoginMode, setIsLoginMode] = useState(true);
@@ -10,6 +11,7 @@ const Login = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState({ text: '', type: '' });
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const roles = ['Citizen', 'NGO', 'Admin'];
 
@@ -22,12 +24,17 @@ const Login = () => {
             if (isLoginMode) {
                 // Handle Login
                 const res = await axios.post('http://localhost:5000/api/auth/login', { email, password, role });
-                localStorage.setItem('aryan_token', res.data.token);
-                localStorage.setItem('aryan_user', JSON.stringify(res.data));
+                
+                // Use context login
+                login(res.data);
+
+                // Role-based redirection
                 if (res.data.role === 'NGO') {
                     navigate('/ngo-dashboard');
+                } else if (res.data.role === 'Admin') {
+                    navigate('/admin');
                 } else {
-                    navigate('/home');
+                    navigate('/'); // Citizen homepage
                 }
             } else {
                 // Handle Registration

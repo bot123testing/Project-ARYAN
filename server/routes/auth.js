@@ -68,4 +68,28 @@ router.post('/login', async (req, res) => {
     }
 });
 
+import Scheme from '../models/Scheme.js';
+import NGO from '../models/NGO.js';
+
+// @desc    Get admin metrics
+// @route   GET /api/auth/admin/metrics
+// @access  Public (mock safe for now)
+router.get('/admin/metrics', async (req, res) => {
+    try {
+        const totalUsers = await User.countDocuments();
+        const totalNGOs = await NGO.countDocuments();
+        const totalSchemes = await Scheme.countDocuments();
+
+        res.json({
+            success: true,
+            totalUsers,
+            totalNGOs,
+            totalSchemes
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error fetching metrics' });
+    }
+});
+
 export default router;

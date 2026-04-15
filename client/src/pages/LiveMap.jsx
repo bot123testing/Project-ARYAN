@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import GeoMap from '../components/Map/GeoMap';
 import { Search, MapPin } from 'lucide-react';
 import { MOCK_NGOS } from '../data/mapMockData';
@@ -72,22 +73,52 @@ const LiveMap = () => {
                                     </select>
                                 </div>
                             </div>
+                            <button 
+                                onClick={async () => {
+                                    if(!searchLocation && !searchType) return;
+                                    try {
+                                        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+                                        await axios.post(`${API_URL}/api/analytics/search`, {
+                                            locationName: searchLocation,
+                                            aidType: searchType
+                                        });
+                                        console.log("Logged search analytics");
+                                    } catch (err) {
+                                        console.error("Failed to log search", err);
+                                    }
+                                }}
+                                className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors flex justify-center items-center gap-2"
+                            >
+                                <Search size={18} /> Apply & Log Search
+                            </button>
                         </div>
 
                         <div className="mt-6 space-y-3">
                             <h3 className="font-semibold text-sm text-gray-500 uppercase">Map Legend</h3>
-                            <div className="flex flex-col gap-2 pointer-events-none opacity-80">
-                                <label className="flex items-center gap-2">
-                                    <span className="w-4 h-4 rounded-full bg-blue-500"></span>
-                                    <span className="text-sm">Available Resources ({filteredData.length} found)</span>
-                                </label>
+                            <div className="flex flex-col gap-3">
+                                <div className="flex items-center gap-3">
+                                    <span className="w-4 h-4 rounded-full bg-[#ef4444]"></span>
+                                    <span className="text-sm text-gray-600 font-medium">Medicine / Clinics</span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="w-4 h-4 rounded-full bg-[#22c55e]"></span>
+                                    <span className="text-sm text-gray-600 font-medium">Food / Ration</span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="w-4 h-4 rounded-full bg-[#92400e]"></span>
+                                    <span className="text-sm text-gray-600 font-medium">Agriculture / Fertilizer</span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="w-4 h-4 rounded-full bg-[#3b82f6]"></span>
+                                    <span className="text-sm text-gray-600 font-medium">Banks / Loan Subsidies</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
                         <h3 className="font-bold text-primary mb-2">Did you know?</h3>
-                        <p className="text-sm text-blue-800">You can click on any pin to see real-time inventory levels (e.g., "50 Oxygen Cylinders available").</p>
+                        <p className="text-sm text-blue-800">You can click on any pin to see regional inventory and directly request aid or consultations.</p>
                     </div>
                 </div>
 
